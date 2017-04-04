@@ -1,0 +1,32 @@
+﻿body
+{
+    background: red;
+}
+body > h1
+{
+    font-size: 200px;
+}
+.red
+{
+    color:green;
+}
+h2
+{
+    font-size: 150 px;
+}
+.blue
+{
+    color: green;
+}
+body > h3
+{
+    color: blue;
+}
+body > #h5
+{
+    color:aqua;
+}
+span
+{
+    font-weight: bold;
+}
