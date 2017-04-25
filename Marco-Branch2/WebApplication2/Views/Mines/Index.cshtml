@@ -1,0 +1,17 @@
+﻿@model WebApplication2.Models.City
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table>
+    @foreach (var mine in this.Model.Mines)
+    {
+        <tr>
+            <td><img src="~/Content/img/icon-@(mine.Type).png"></td>
+            <td>@mine.Type</td>
+            <td>@mine.Level</td>
+            <td>@Html.ActionLink("Details", "Details", new { mineID = mine.MineID })</td>
+        </tr>
+    }
+</table>
