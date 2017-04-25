@@ -15,11 +15,33 @@ namespace WebApplication2.Controllers
         ApplicationDbContext ob = new ApplicationDbContext();
         public ActionResult Index()
         {
+            
             var userID = this.User.Identity.GetUserId();
             var user = ob.Users.Find(userID);
             var city = user.Cities.First();
+            this.UpdteResources(city);
             return View(city);
+
+
         }
+        private void UpdteResources(City city)
+        {
+            var start = DateTime.Now;
+            foreach (var res in city.Resources)
+            {
+                foreach (var mine in city.Mines)
+                {
+                    if (mine.Type == res.Type)
+                    {
+                        res.Value += mine.GetProductionPerHour() * (start - res.LastUpdate).TotalHours;
+                    }
+                }
+                res.LastUpdate = start;
+            }
+            ob.SaveChanges();
+
+        }
+
         public ActionResult Details(int mineID)
         {
             var userID = this.User.Identity.GetUserId();
