@@ -3,15 +3,35 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <table>
+       <tr>
+           @foreach (var res in this.Model.Resources)
+           {
+             
+             <td class="res-img @(res.Type)"><img src="~/Content/img/icon-@(res.Type).png"></td>
+             <td>@res.Type</td>
+             <td class="res-value @(res.Type)">@res.Value.ToString("n4")</td>
+             <td class="res-update @(res.Type)">@res.LastUpdate</td>
+            //<td>@Html.ActionLink("Details", "Details", new { mineID = res.MineID })</td>
+
+           }
+       </tr>
+</table>
+<table class="mines">
     @foreach (var mine in this.Model.Mines)
     {
-        <tr>
+        <tr class="@(mine.Type)">
+
             <td><img src="~/Content/img/icon-@(mine.Type).png"></td>
             <td>@mine.Type</td>
             <td>@mine.Level</td>
             <td>@Html.ActionLink("Details", "Details", new { mineID = mine.MineID })</td>
+            <td class="hourProduction">@mine.GetProductionPerHour()</td>
         </tr>
     }
 </table>
+@section Scripts
+{
+    <script src="~/Scripts/Fisiere/JavaScript.js"></script>
+    <script src="~/Scripts/Date.min.js"></script>
+}
