@@ -46,7 +46,7 @@ td {
     background-color: lightgreen;
 }
 
-.mine-detail{
+.mine-detail {
     margin:10px;
     padding:50px;
     background-color:white;
@@ -54,4 +54,69 @@ td {
     border-width:1px;
     border-style: solid;
     border-radius:25px;
+}
+
+#village-image
+{
+    position: absolute;
+    top: 203px;
+    left: 587px;
+}
+
+.mine-wrapper {
+    position: absolute;
+    top: 203px;
+    left: 587px;
+}
+
+.mine-level {
+    transition: all .2s linear;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background: green;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.mine-level:hover{
+    transform: scale(1.5);
+}
+
+.mine-clay {
+    top: 72px;
+    left: 225px;
+    background: red;
+}
+.mine-iron {
+    top: 84px;
+    left: 342px;
+    background: white;
+}
+.mine-wheat {
+    top: 157px;
+    left: 126px;
+    background: yellow;
+}
+.mine-wood {
+    top: 194px;
+    left: 250px;
+    background: green;
+    transform: translate(10.5px, 8.3px);
+}
+
+@keyframes upgrading{
+    0%{
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.upgrading{
+    animation: upgrading .5s infinite;
 }
