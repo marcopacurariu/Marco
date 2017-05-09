@@ -40,3 +40,11 @@ else if (this.Model.Type == WebApplication2.Models.ResourceType.Iron)
     <p> Current level: @(Model.Level) and production: @(Model.Level * 13);</p>
     <p> Next level: @(Model.Level + 1)and production: @((Model.Level + 1) * 13);</p>
 }
+
+@using (Html.BeginForm("Upgrade","Mines"))
+{
+    @Html.HiddenFor(m=>m.MineID)
+    <div> Do a fast upgrade?: @Html.CheckBox("fastUpgrade")</div>
+    //<input name="mineID" value="10" type="hidden" />
+    <button type="submit">Upgrade</button>
+}

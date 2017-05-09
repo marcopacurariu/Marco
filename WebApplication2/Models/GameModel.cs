@@ -5,6 +5,7 @@ using System.Web;
 
 namespace WebApplication2.Models
 {
+
     public class City
     {
         public int CityID { get; set; }
@@ -12,6 +13,7 @@ namespace WebApplication2.Models
         public virtual IList  <Resource> Resources { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
         public string ApplicationUserID { get; set; }
+        public virtual IList<Building> Buildings { get; set; }
     }
 
     public class Resource
@@ -39,6 +41,19 @@ namespace WebApplication2.Models
         {
             return (level ?? this.Level) * 13;
         }
+        public DateTime UpgradeCompletesAt { get; set; }
+        public bool IsUpgrading { get { return this.UpgradeCompletesAt > DateTime.Now; } }
+        internal (int amount, ResourceType type) [] getUpgradeRequirements()
+        {
+            return new[]
+            {
+                (10* (this.Level+1), ResourceType.Clay),
+                (10* (this.Level+1), ResourceType.Iron),
+                (10* (this.Level+1), ResourceType.Wheat),
+                (10* (this.Level+1), ResourceType.Wood),
+
+            };
+        }
     }
 
     public enum ResourceType
@@ -47,5 +62,23 @@ namespace WebApplication2.Models
         Iron,
         Clay,
         Wood
+    }
+
+    public class Building
+    {
+        public int BuildingId { get; set; }
+        public int Level { get; set; }
+        public int? BuildingTypeId { get; set; }
+        public virtual BuildingType BuildingType { get; set; }
+        public int CityId { get; set; }
+        public virtual City City { get; set; }
+    }
+
+    public class BuildingType
+    {
+        public int BuildingTypeId { get; set; }
+        public string Action { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }
