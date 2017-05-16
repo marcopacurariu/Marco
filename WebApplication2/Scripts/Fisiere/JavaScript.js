@@ -29,5 +29,20 @@
 
     };
     setInterval(updateResources, 500);
+    var getMineDetailsHTML = function (mineID) {
+        $('#mine-details-container > .content').empty();
+        $('#mine-details-container > .content').load("/Mines/Details?mineID=" + mineID);
+        $('#mine-details-container').addClass('show');
+    };
+
+    $('.mine-details-btn').click(function (e) {
+        var mineID = $(this).data('mine-id');
+        getMineDetailsHTML(mineID);
+    });
+
+
+    $('#mine-details-container > .close-btn').click(function () {
+        $('#mine-details-container').removeClass('show');
+    });
 }
 );

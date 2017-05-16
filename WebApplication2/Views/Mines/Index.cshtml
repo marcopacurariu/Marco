@@ -25,10 +25,15 @@
             <td><img src="~/Content/img/icon-@(mine.Type).png"></td>
             <td>@mine.Type</td>
             <td>@mine.Level</td>
-            <td>@Html.ActionLink("Details", "Details", new { mineID = mine.MineID })</td>
+            <!-- <td>@Html.ActionLink("Details", "Details", new { mineID = mine.MineID })</td> -->
+            <td><span class="mine-details-btn" data-mine-id="@mine.MineID">Details</span></td>
             <td class="hourProduction">@mine.GetProductionPerHour()</td>
         </tr>
     }
+    <div id="mine-details-container">
+        <div class="close-btn">X</div>
+        <div class="content"></div>
+    </div>
 </table>
 @section Scripts
 {
