@@ -35,5 +35,7 @@ namespace WebApplication2.Models
         public DbSet <City> Cities { get; set; }
         public DbSet <Building> Buildings { get; set; }
         public DbSet <BuildingType> BuildingTypes { get; set; }
+        public DbSet <TroupType> TroupTypes { get; set; }
     }
+
 }

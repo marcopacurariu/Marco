@@ -191,9 +191,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BuildingController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MinesController.cs" />
+    <Compile Include="Controllers\TroupTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +210,18 @@
     <Compile Include="Migrations\201705091709071_building.cs" />
     <Compile Include="Migrations\201705091709071_building.Designer.cs">
       <DependentUpon>201705091709071_building.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231535249_migratie.cs" />
+    <Compile Include="Migrations\201705231535249_migratie.Designer.cs">
+      <DependentUpon>201705231535249_migratie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231600454_migratie2.cs" />
+    <Compile Include="Migrations\201705231600454_migratie2.Designer.cs">
+      <DependentUpon>201705231600454_migratie2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231616212_migratie3.cs" />
+    <Compile Include="Migrations\201705231616212_migratie3.Designer.cs">
+      <DependentUpon>201705231616212_migratie3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -297,6 +311,13 @@
     <Content Include="Views\Mines\Upgrade.cshtml" />
     <Content Include="Views\Building\Index.cshtml" />
     <Content Include="Views\Building\Build.cshtml" />
+    <Content Include="Views\TroupTypes\Create.cshtml" />
+    <Content Include="Views\TroupTypes\Delete.cshtml" />
+    <Content Include="Views\TroupTypes\Details.cshtml" />
+    <Content Include="Views\TroupTypes\Edit.cshtml" />
+    <Content Include="Views\TroupTypes\Index.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
+    <Content Include="Views\Cities\Lista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -321,6 +342,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705091709071_building.resx">
       <DependentUpon>201705091709071_building.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231535249_migratie.resx">
+      <DependentUpon>201705231535249_migratie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231600454_migratie2.resx">
+      <DependentUpon>201705231600454_migratie2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231616212_migratie3.resx">
+      <DependentUpon>201705231616212_migratie3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
